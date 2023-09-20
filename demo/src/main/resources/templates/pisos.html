@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Listado de pisos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#">Control de pisos</a>
+        <div class="collapse navbar-collapse" id="collapseNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link"
+                th:href="@{/pisos}">Control de pisos</a> </li>
+                <li class="nav-item"><a class="nav-link"
+                    th:href="@{/precios}">Precios</a> </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <h1>Lista de pisos</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <a th:href="@{/pisos/nuevo}" class="btn btn-primary btn-sm- mb3">Agregar piso</a>
+            </div>
+        </div>
+        <br>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Piso</th>
+                    <th>Tipo de vehiculo</th>
+                    <th>Capacidad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="piso : ${pisos}">
+                    <td th:text="${piso.numero}">Piso</td>
+                    <td th:text="${piso.tipo_v}">Tipo de vehiculo</td>
+                    <td th:text="${piso.cupos_v}">Capacidad</td>
+                    <td>
+                        <a th:href="@{/pisos/editar/{id}(id=${piso.id})}" class="btn btn-info">Editar</a>
+                        <a th:href="@{/pisos/{id}(id=${piso.id})}" class="btn btn-danger">Eliminar</a>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+</body>
+
+</html>
