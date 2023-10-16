@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.proyectodw.demo.entidad.Piso;
+
 import com.proyectodw.demo.repositorio.PisoRepositorio;
 
 @Service
@@ -37,6 +38,7 @@ public class PisoServicioImpl implements PisoServicio{
     public void eliminarPiso(Long id) {
         repositorio.deleteById(id);
     }
+    
 
     
     

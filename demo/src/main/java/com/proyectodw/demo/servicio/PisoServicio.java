@@ -15,5 +15,7 @@ public interface PisoServicio {
     public Piso actualizarPiso(Piso piso);
 
     public void eliminarPiso(Long id);
+
+    
     
 }

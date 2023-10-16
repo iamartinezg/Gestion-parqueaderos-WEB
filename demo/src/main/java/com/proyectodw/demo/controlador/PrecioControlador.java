@@ -28,6 +28,7 @@ public class PrecioControlador {
     @GetMapping("/precios/nuevo")
     public String crearPrecioFormulario(Model modelo){
         Precio precio = new Precio();
+        
         modelo.addAttribute("precio", precio);
         return "crear_precio";
     }

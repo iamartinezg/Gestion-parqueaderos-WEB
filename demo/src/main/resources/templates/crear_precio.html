@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Editar Piso</title>
+    <title>Registro de Precios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
@@ -24,22 +24,22 @@
     <div class="container">
        <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h1 class="text-center">Edicion de precio</h1>
+            <h1 class="text-center">Registro de precios</h1>
             <div class="card-body">
-                <form th:action="@{/precios/{id}(id=${precio.id})}" th:object="${precio}" method="POST">
-                    <div class="form-group">
-                        <label>Precio nuevo: </label>
-                        <input type="number" name="precio" th:field="*{precio}" class="form-control" placeholder="Digite nuevo precio: " required>
-                    </div>
-                    <br>
+                <form th:action="@{/precios}" th:object="${precio}" method="POST">
                     <div class="form-group">
                         <label>Tipo de vehiculo: </label>
-                        <input type="text" name="tipo_v" th:field="*{tipo_v}" class="form-control" placeholder="Digite nuevo tipo de vehiculo: " required>
+                        <input type="text" name="tipo_v" th:field="*{tipo_v}" class="form-control" placeholder="Ingerese tipo de vehiculo: " required>
                     </div>
                     <br>
                     <div class="form-group">
-                        <label>Tamaño vehiculo(m^2): </label>
-                        <input type="number" name="tam_tipo_v" th:field="*{tam_tipo_v}" class="form-control" placeholder="Digite nuevo tamaño de vehiculo(m^2): " required>
+                        <label>Tamaño de vehiculo (m^2): </label>
+                        <input type="number" name="tam_tipo_v" th:field="*{tam_tipo_v}" class="form-control" placeholder="Ingerese tamaño de vehiculo: " required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Precio: </label>
+                        <input type="number" name="precio" th:field="*{precio}" class="form-control" placeholder="Digite precio: " required>
                     </div>
                     <br>
                     <div class="box-footer">
@@ -50,6 +50,8 @@
             </div>
 
         </div>
+       </div>
+    </div>
 
 </body>
 

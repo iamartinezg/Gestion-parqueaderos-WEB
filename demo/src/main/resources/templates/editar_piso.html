@@ -13,44 +13,51 @@
         <a class="navbar-brand" href="#">Control de pisos</a>
         <div class="collapse navbar-collapse" id="collapseNavbar">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link"
-                th:href="@{/pisos}">Control de pisos</a> </li>
-                <li class="nav-item"><a class="nav-link"
-                    th:href="@{/precios}">Precios</a> </li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/pisos}">Control de pisos</a> </li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/precios}">Precios</a> </li>
             </ul>
         </div>
     </nav>
     <br>
     <div class="container">
-       <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h1 class="text-center">Edicion de piso</h1>
-            <div class="card-body">
-                <form th:action="@{/pisos/{id}(id=${piso.id})}" th:object="${piso}" method="POST">
-                    <div class="form-group">
-                        <label>Numero de piso: </label>
-                        <input type="text" name="numero" th:field="*{numero}" class="form-control" placeholder="Digite numero de piso: " required>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label>Tipo de vehiculo: </label>
-                        <select type="text" name="tipo_v" th:field="*{tipo_v}" class="form-control" required>
-                            <option value="carro">Carro</option>
-                            <option value="moto">Moto</option>
-                            <option value="Bus">Bus</option>
-                        </select>
-                    </div>
-                    <br>
-                    <div class="box-footer">
-                        <button class="btn btn-success">Guardar</button>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h1 class="text-center">Edicion de piso</h1>
+                <div class="card-body">
+                    <form th:action="@{/pisos/{id}(id=${piso.id})}" th:object="${piso}" method="POST">
+                        <div class="form-group">
+                            <label>Numero de piso: </label>
+                            <input type="text" name="numero" th:field="*{numero}" class="form-control"
+                                placeholder="Digite numero de piso: " required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Tipo de vehiculo: </label>
+                            <select type="text" name="tipo_v" th:field="*{tipo_v}" class="form-control" required>
+                                <option th:each="precio : ${precios}" th:value="${precio.tipo_v}"
+                                    th:text="${precio.tipo_v}"></option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Cupos: </label>
+                            <select type="number" name="cupos_v" th:field="*{cupos_v}" class="form-control" required>
+                                <option th:each="precio : ${precios}" th:value="${100/precio.tam_tipo_v}"
+                                    th:text="${100/precio.tam_tipo_v}"></option>
+                            </select>
+                        </div>
 
-                    </div>
-                </form>
+                        <br>
+                        <div class="box-footer">
+                            <button class="btn btn-success">Guardar</button>
+
+                        </div>
+                    </form>
+                </div>
+
             </div>
 
-        </div>
 
-    
 
 
 </body>

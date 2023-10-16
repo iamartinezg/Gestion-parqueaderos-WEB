@@ -21,19 +21,19 @@ public class Piso {
     private String tipo_v;
 
     @Column(name= "cupos_v",nullable=false, length = 5)
-    public int cupos_v;
+    public float cupos_v;
 
     public Piso(){
 
     }
 
-    public Piso(Long id, int numero, String tipo_v, int cupos_v) {
+    public Piso(Long id, int numero, String tipo_v, float cupos_v) {
         this.id = id;
         this.numero = numero;
         this.tipo_v = tipo_v;
         this.cupos_v = cupos_v;
     }
-    public Piso( int numero, String tipo_v, int cupos_v) {
+    public Piso( int numero, String tipo_v, float cupos_v) {
         this.numero = numero;
         this.tipo_v = tipo_v;
         this.cupos_v = cupos_v;
@@ -63,11 +63,11 @@ public class Piso {
         this.tipo_v = tipo_v;
     }
 
-    public int getCupos_v() {
+    public float getCupos_v() {
         return cupos_v;
     }
 
-    public void setCupos_v(int cupos_v) {
+    public void setCupos_v(float cupos_v) {
         this.cupos_v = cupos_v;  
     }
 
