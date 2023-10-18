@@ -1,0 +1,77 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Editar Carro</h3>
+    <form (ngSubmit)="onSubmit()" #carroForm = "ngForm">
+        <div class="form-group">
+            <label>Placa :</label>
+            <input type ="text" class="form-control" id = "placa" [(ngModel)]="carro.placa" name="placa" required placeholder="Digite su placa" minlength="6" maxlength="6" #placa="ngModel">
+            <label>Tipo de vehiculo :</label>
+            <input type ="text" class="form-control" id = "tipo_v" [(ngModel)]="carro.tipo_v" name="tipo_v" required placeholder="Digite su tipo de vehiculo" minlength="4" maxlength="10" #tipo_v="ngModel">
+            <label>Hora Ingreso :</label>
+            <input type ="date" class="form-control" id = "h_ingreso" [(ngModel)]="carro.h_ingreso" name="h_ingreso" required placeholder="Digite la hora de ingreso" #h_ingreso="ngModel">
+            <label>Hora Salida :</label>
+            <input type ="date" class="form-control" id = "h_salida" [(ngModel)]="carro.h_salida" name="h_salida" required placeholder="Digite la hora de salida" #h_salida="ngModel">
+            <label>Valor a pagar :</label>
+            <input type ="number" class="form-control" id = "valor_a_pagar" [(ngModel)]="carro.valor_a_pagar" name="valor_a_pagar" required placeholder="Digite el valor a pagar" minlength="2" maxlength="20" #valor_a_pagar="ngModel">
+            <label>Piso: </label>
+            <input type ="number" class="form-control" id = "num_piso" [(ngModel)]="carro.num_piso" name="num_piso" required placeholder="Digite el numero del piso" minlength="1" maxlength="3" #num_piso="ngModel">
+        </div>
+        <div class="alert alert-danger" *ngIf="placa.invalid && (placa.dirty || placa.touched)">
+            <div *ngIf = "placa.errors.required">
+                Digite su placa por favor
+            </div>
+            <div *ngIf = "placa.errors.minlength">
+                La placa debe ser minimo de 6 caracteres
+            </div>
+            <div *ngIf = "placa.errors.maxlength">
+                La placa debe ser maximo de 6 caracteres
+            </div>
+        </div>
+        <div class="alert alert-danger" *ngIf="tipo_v.invalid && (tipo_v.dirty || tipo_v.touched)">
+            <div *ngIf = "tipo_v.errors.required">
+                Digite su tipo de vehiculo por favor
+            </div>
+            <div *ngIf = "tipo_v.errors.minlength">
+                El tipo de vehiculo debe ser minimo de 4 caracteres
+            </div>
+            <div *ngIf = "tipo_v.errors.maxlength">
+                El tipo de vehiculo debe ser maximo de 10 caracteres
+            </div>
+        </div>
+        <div class="alert alert-danger" *ngIf="h_ingreso.invalid && (h_ingreso.dirty || h_ingreso.touched)">
+            <div *ngIf = "h_ingreso.errors.required">
+                Digite la hora de ingeso del vehiculo por favor
+            </div>
+        </div>
+        <div class="alert alert-danger" *ngIf="h_salida.invalid && (h_salida.dirty || h_salida.touched)">
+            <div *ngIf = "h_salida.errors.required">
+                Digite la hora de salida del vehiculo por favor
+            </div>
+        </div>
+        <div class="alert alert-danger" *ngIf="valor_a_pagar.invalid && (valor_a_pagar.dirty || valor_a_pagar.touched)">
+            <div *ngIf = "valor_a_pagar.errors.required">
+                Digite el pago del vehiculo por favor
+            </div>
+            <div *ngIf = "valor_a_pagar.errors.minlength">
+                El pago debe ser minimo de 2 caracteres
+            </div>
+            <div *ngIf = "valor_a_pagar.errors.maxlength">
+                El pago debe ser maximo de 20 caracteres
+            </div>
+        </div>
+        <div class="alert alert-danger" *ngIf="num_piso.invalid && (num_piso.dirty || num_piso.touched)">
+            <div *ngIf = "num_piso.errors.required">
+                Digite el numero del piso por favor
+            </div>
+            <div *ngIf = "num_piso.errors.minlength">
+                El piso debe ser minimo de 1 caracter
+            </div>
+            <div *ngIf = "num_piso.errors.maxlength">
+                El piso debe ser maximo de 3 caracteres
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-success" [disabled]="!carroForm.form.valid">Registrar</button>
+
+    </form>
+</div>
+

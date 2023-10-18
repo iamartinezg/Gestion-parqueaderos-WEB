@@ -1,0 +1,26 @@
+<h2>Lista carros</h2>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Placa</th>
+            <th>Hora ingreso</th>
+            <th>Hora salida</th>
+            <th>Valor a pagar</th>
+            <th>Piso</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let carro of carros">
+            <td>{{carro.placa}}</td>
+            <td>{{carro.h_ingreso}}</td>
+            <td>{{carro.h_salida}}</td>
+            <td>{{carro.valor_a_pagar}}</td>
+            <td>{{carro.num_piso}}</td>
+            <td><button (click)="actualizarCarro(carro.id)" class="btn btn-info">Editar</button>
+            <button (click)="eliminarCarro(carro.id)" class="btn btn-danger" style="margin-left : 10px">Eliminar</button>
+            <button (click)="verDetallesDelCarro(carro.id)" class="btn btn-primary" style="margin-left : 10px">Detalles</button>
+        </td>
+        </tr>
+    </tbody>
+</table>
