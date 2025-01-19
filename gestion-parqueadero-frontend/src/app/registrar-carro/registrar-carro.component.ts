@@ -26,7 +26,7 @@ export class RegistrarCarroComponent implements OnInit {
 
   irALaListaDeCarros(){
     this.router.navigate(['/carros']);
-    swal('Carro registrado', `El Carro ${this.carro.placa} registrado con éxito!`, 'success');
+    swal.fire('Carro guardado','Carro registrado con exito en el sistema','success');
   }
 
   onSubmit() {

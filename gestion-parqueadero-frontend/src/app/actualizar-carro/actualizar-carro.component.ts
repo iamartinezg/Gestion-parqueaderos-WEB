@@ -24,7 +24,7 @@ export class ActualizarCarroComponent {
 
   irAlaListaDeCarros(){
     this.router.navigate(['/carros']);
-    swal('Carro actualizado',`El carro ${this.carro.placa} ha sido actualizado con exito`,`success`);
+    swal.fire('Carro actualizado',`El carro ${this.carro.placa} ha sido actualizado con exito`,`success`);
   }
 
   onSubmit(){

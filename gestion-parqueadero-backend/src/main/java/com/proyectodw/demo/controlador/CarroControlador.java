@@ -59,9 +59,9 @@ public class CarroControlador {
     }
     //este metodo sirve para eliminar un empleado
 	@DeleteMapping("/carros/{id}")
-	public ResponseEntity<Map<String,Boolean>> eliminarEmpleado(@PathVariable Long id){
+	public ResponseEntity<Map<String,Boolean>> eliminarCarro(@PathVariable Long id){
 		Carro carro = repositorio.findById(id)
-				            .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
+				            .orElseThrow(() -> new ResourceNotFoundException("No existe el carro con el ID : " + id));
 		
 		repositorio.delete(carro);
 		Map<String, Boolean> respuesta = new HashMap<>();
